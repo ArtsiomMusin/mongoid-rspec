@@ -34,7 +34,7 @@ if Mongoid::Compatibility::Version.mongoid3?
 else
   require 'matchers/indexes/v4/have_index_for'
 end  
-require 'matchers/have_timestamps'
+require 'matchers/include_timestamps'
 
 module Mongoid
   module Matchers

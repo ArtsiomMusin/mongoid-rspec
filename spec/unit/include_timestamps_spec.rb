@@ -9,7 +9,16 @@ RSpec.describe Mongoid::Matchers::HaveTimestamps do
       end
     end
 
-    it { is_expected.to have_timestamps }
+    it { is_expected.to include_timestamps }
+  end
+
+  context 'when model does not include Mongoid::Timestamps' do
+    subject do
+      Class.new do
+      end
+    end
+
+    it { is_expected.to_not include_timestamps }
   end
 
   context 'when model includes Mongoid::Timestamps::Short' do
@@ -20,7 +29,7 @@ RSpec.describe Mongoid::Matchers::HaveTimestamps do
       end
     end
 
-    it { is_expected.to have_timestamps.shortened }
+    it { is_expected.to include_timestamps.shortened }
   end
 
   context 'when model includes Mongoid::Timestamps::Updated' do
@@ -31,7 +40,7 @@ RSpec.describe Mongoid::Matchers::HaveTimestamps do
       end
     end
 
-    it { is_expected.to have_timestamps.for(:updating) }
+    it { is_expected.to include_timestamps.for(:updating) }
   end
 
   context 'when model includes Mongoid::Timestamps::Updated::Short' do
@@ -42,8 +51,8 @@ RSpec.describe Mongoid::Matchers::HaveTimestamps do
       end
     end
 
-    it { is_expected.to have_timestamps.for(:updating).shortened }
-    it { is_expected.to have_timestamps.shortened.for(:updating) }
+    it { is_expected.to include_timestamps.for(:updating).shortened }
+    it { is_expected.to include_timestamps.shortened.for(:updating) }
   end
 
   context 'when model includes Mongoid::Timestamps::Created' do
@@ -54,7 +63,7 @@ RSpec.describe Mongoid::Matchers::HaveTimestamps do
       end
     end
 
-    it { is_expected.to have_timestamps.for(:creating) }
+    it { is_expected.to include_timestamps.for(:creating) }
   end
 
   context 'when model includes Mongoid::Timestamps::Created::Short' do
@@ -65,7 +74,7 @@ RSpec.describe Mongoid::Matchers::HaveTimestamps do
       end
     end
 
-    it { is_expected.to have_timestamps.for(:creating).shortened }
-    it { is_expected.to have_timestamps.shortened.for(:creating) }
+    it { is_expected.to include_timestamps.for(:creating).shortened }
+    it { is_expected.to include_timestamps.shortened.for(:creating) }
   end
 end

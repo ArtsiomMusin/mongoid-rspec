@@ -88,7 +88,7 @@ RSpec.describe User, type: :model do
 end
 ```
 
-### have_timestamps
+### include_timestamps
 
 With full timestamps
 
@@ -99,7 +99,7 @@ class Log
 end
 
 RSpec.describe Log, type: :model do
-  it { is_expected.to have_timestamps }
+  it { is_expected.to include_timestamps }
 end
 ```
 
@@ -111,7 +111,7 @@ class User
 end
 
 RSpec.describe User, type: :model do
-  it { is_expected.to have_timestamps.shortened }
+  it { is_expected.to include_timestamps.shortened }
 end
 ```
 
@@ -124,8 +124,8 @@ class Admin
 end
 
 RSpec.describe Admin, type: :model do
-  it { is_expected.to have_timestamps.for(:creating) }
-  it { is_expected.to have_timestamps.for(:updating) }
+  it { is_expected.to include_timestamps.for(:creating) }
+  it { is_expected.to include_timestamps.for(:updating) }
 end
 ```
 
@@ -137,7 +137,7 @@ class Post
 end
 
 RSpec.describe Short, type: :model do
-  it { is_expected.to have_timestamps.for(:creating).shortened }
+  it { is_expected.to include_timestamps.for(:creating).shortened }
 end
 ```
 

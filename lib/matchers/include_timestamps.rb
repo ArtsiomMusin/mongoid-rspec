@@ -1,6 +1,6 @@
 module Mongoid
   module Matchers
-    def have_timestamps
+    def include_timestamps
       HaveTimestamps.new
     end
 
